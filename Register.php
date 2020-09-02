@@ -6,12 +6,12 @@ include('./dbconnect.php');
     $pw = $_POST['pw'];
     $email = $_POST['email'];
 
-    $sql = "INSERT INTO user(user_id, user_pw, user_email, user_date) VALUES('$id', '$pw', '$email', now())";
-    $result = mysqli_query($conn, $sql);
-    if($result){
+    $sql = "INSERT INTO user(user_id, user_pw, user_email) VALUES('$id', '$pw', '$email')";
+    $result = $pdo->prepare($sql);
+    if($result->execute()){
       echo '회원가입되었습니다.';
     }else{
-      echo '회원가입 실패'.mysqli_error($conn);
+      echo '회원가입 실패';
     }
   }
 ?>

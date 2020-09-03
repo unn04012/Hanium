@@ -12,5 +12,7 @@ include('./dbconnect.php');
     }else{
       echo '아이디 또는 비밀번호가 일치하지 않습니다.';
     }
+  }else{
+    echo '넘어온 값이 없습니다.';
   }
  ?>

@@ -5,5 +5,5 @@
 //
 // echo $result;
 
-echo 'hello world';
- ?> 
+echo 'bye world';
+ ?>

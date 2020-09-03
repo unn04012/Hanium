@@ -15,4 +15,5 @@ include('./dbconnect.php');
   }else{
     echo '넘어온 값이 없습니다.';
   }
+  
  ?>

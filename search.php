@@ -3,7 +3,7 @@ include('./dbconnect.php');
 if(isset($_POST['userName'])){
       $id = $_POST['userName'];
 
-      $sql = "SELECT * FROM problem_check WHERE user_number = $id";
+      $sql = "SELECT * FROM problem_check WHERE user_number = '$id'";
       $stmt = $pdo->prepare($sql);
       $stmt -> execute();
       $result2 = $stmt->fetchAll(PDO::FETCH_ASSOC);

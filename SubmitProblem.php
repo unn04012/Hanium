@@ -1,8 +1,7 @@
 <?php
 include('./dbconnect.php');
 
-if(isset($_POST['userName'])){
-
+if(isset($_POST['userName'])){  
   $problemNum = $_POST['problemNum'];
   $userNum = $_POST['userName'];
   $isCorrect = $_POST['isCorrect'];
@@ -16,13 +15,12 @@ if(isset($_POST['userName'])){
             is_correct = $isCorrect,
             try_number = $try_number+1,
             solve_date = now()
-            WHERE user_number = '$userNum'";
-    echo $sql;
+            WHERE user_number = '$userNum' and problem_id = $problemNum";
+
     $result = $pdo->prepare($sql);
     $result->execute();
   }else{
     $sql = "INSERT INTO problem_check(user_number, problem_id, is_correct, try_number) VALUES('$userNum', $problemNum, $isCorrect, 1)";
-
     $result = $pdo->prepare($sql);
     $result->execute();
   }
